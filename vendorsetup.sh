@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo full_c8660-eng
-add_lunch_combo cm_c8660-userdebug
+add_lunch_combo full_c8860-eng
+add_lunch_combo cm_c8860-userdebug
