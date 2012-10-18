@@ -7,10 +7,6 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit device configuration
 $(call inherit-product, device/huawei/c8860/full_c8860.mk)
 
-# Include Qualcomm open source features
-$(call inherit-product, vendor/qcom/opensource/omx/mm-core/Android.mk)
-$(call inherit-product, vendor/qcom/opensource/omx/mm-video/Android.mk)
-
 # Select the right boot animation
 TARGET_BOOTANIMATION_NAME := vertical-480x854
 

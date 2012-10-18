@@ -13,17 +13,14 @@ DEVICE_PACKAGE_OVERLAYS += device/huawei/c8860/overlay
 # Inherit dalvik parameters
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
-
+# Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/huawei/c8860/kernel
+LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-$(call inherit-product, build/target/product/full_base_telephony.mk)
+$(call inherit-product, build/target/product/full_base.mk)
 
 PRODUCT_PACKAGES += \
 	make-ext4fs \
@@ -55,7 +52,6 @@ PRODUCT_PACKAGES += \
 	hostapd
 
 # Vold config, boot logo & init scripts
-
 PRODUCT_COPY_FILES += \
 	device/huawei/c8860/vold.fstab:system/etc/vold.fstab \
 	device/huawei/c8860/boot-c8860.rle:root/initlogo.rle \
@@ -64,13 +60,11 @@ PRODUCT_COPY_FILES += \
 	device/huawei/c8860/ueventd.huawei.rc:root/ueventd.huawei.rc
 
 # WLAN modules
-
 PRODUCT_COPY_FILES += \
 	device/huawei/c8860/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
 	device/huawei/c8860/prebuilt/dhd_4330.ko:system/lib/modules/dhd_4330.ko
 
 # Permissions
-
 PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 	frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -101,3 +95,6 @@ PRODUCT_MANUFACTURER := Huawei
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Include Qualcomm open source features
+$(call inherit-product, vendor/qcom/opensource/omx/mm-core/Android.mk)
+$(call inherit-product, vendor/qcom/opensource/omx/mm-video/Android.mk)

@@ -1,5 +1,5 @@
 #
-# system.prop for u8860
+# system.prop for c8860
 #
 
 sys.usb.config=adb
@@ -20,7 +20,7 @@ wifi.supplicant_scan_interval=15
 # Radio Interface Layer (RIL)
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
-ro.telephony.default_network=0
+ro.telephony.default_network=4
 ro.telephony.ril_class=HuaweiRIL
 ril.subscription.types=NV,RUIM
 ro.ril.shutdown=true
@@ -42,6 +42,12 @@ persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 
+ro.com.google.clientidbase=android-cricket-us
+ro.cdma.home.operator.alpha=Cricket
+ro.cdma.home.operator.numeric=31016
+ro.config.cdma_subscription=1
+ro.cdma.voicemail.number=mine
+
 # OpenGLES version
 ro.opengles.version=131072
 
@@ -53,9 +59,9 @@ ro.qualcomm.bluetooth.ftp=true
 ro.bluetooth.request.master=true
 ro.bluetooth.remote.autoconnect=true
 ro.qualcomm.bluetooth.dun=true
-net.bt.name=CM9-U8860
+net.bt.name=CM9-c8860
 
 # Others
 ro.teather.denied=false
-ro.rommanager.developerid=cyanogenmod
+ro.rommanager.developerid=playfulgod
 ro.setupwizard.enable_bypass=1

@@ -43,6 +43,8 @@ Getting my Huawei Mercury repo
 Extract necessary binaries and proprietary files 
 ------------------------------------------------
 
+NEED FILES FROM ICS LEAK!!!
+
 We will need to reuse some proprietary files from the stock ROM:
 
     $ cd
