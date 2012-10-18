@@ -2,7 +2,7 @@
 # The partition is vfat, mounted as "/.cust_backup" in the root fs
 # mount point	fstype  		  device    		[device2]
 /boot			vfat		/dev/block/mmcblk0p1
-/recovery	    vfat		/dev/block/mmcblk0p1
+/recovery		vfat		/dev/block/mmcblk0p1
 /misc	 		emmc		/dev/block/mmcblk0p7
 /cache			ext4		/dev/block/mmcblk0p6
 /system  	    ext4        /dev/block/mmcblk0p12

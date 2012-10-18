@@ -8,7 +8,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/huawei/c8860/full_c8860.mk)
 
 # Select the right boot animation
-TARGET_BOOTANIMATION_NAME := vertical-480x854
+TARGET_BOOTANIMATION_NAME := vertical-480x800
 
 # Release name
 PRODUCT_RELEASE_NAME := HuaweiMercury
