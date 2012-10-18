@@ -1,5 +1,6 @@
 # Small language pack only
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_small.mk)
+$(call inherit-product, vendor/cm/config/common.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)

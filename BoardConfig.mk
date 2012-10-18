@@ -1,28 +1,122 @@
-# Copyright (C) 2012 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Product specific compile-time definitions
 
-# BoardConfig.mk
-#
-# Product-specific compile-time definitions.
-#
+LOCAL_PATH := $(call my-dir)
+
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DTARGET7x30 -DTARGET_MSM7x30 -DREFRESH_RATE=60
+
+TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
+
+USE_CAMERA_STUB := true
+BOARD_USES_GENERIC_AUDIO := true
+
+# inherit from the proprietary version
+-include vendor/huawei/c8860/BoardConfigVendor.mk
+
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT_CPU := cortex-a8
+ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_BOARD_PLATFORM := msm7x30
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_BOOTLOADER_BOARD_NAME := c8860
+TARGET_OTA_ASSERT_DEVICE := c8860,C8860
+
+BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei androidboot.emmc=true
+BOARD_KERNEL_BASE := 0x00208000
+BOARD_KERNEL_PAGESIZE := 4096
+
+TARGET_KERNEL_CONFIG := cm_defconfig 
+TARGET_PREBUILT_KERNEL := device/huawei/c8860/kernel
+
+BOARD_HAS_DOWNLOAD_MODE := true
+
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_LIBS := true
+BOARD_USES_QCOM_LIBRPC := true
+BOARD_USES_QCOM_GPS := true
+
+# Graphics
+TARGET_HARDWARE_3D := false
+USE_OPENGL_RENDERER := true
+BOARD_USES_ADRENO_200 := true
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_HAVE_BYPASS := false
+TARGET_QCOM_HDMI_OUT := true
+TARGET_GRALLOC_USES_ASHMEM := false
+TARGET_USES_OVERLAY := true
+TARGET_USES_GENLOCK := true
+TARGET_FORCE_CPU_UPLOAD := true
+BOARD_USES_QCNE := true
+TARGET_USES_SF_BYPASS := false
+WEBCORE_INPAGE_VIDEO := true
+TARGET_HAVE_TSLIB := true
+TARGET_HAVE_ION := true
+
+# WLAN config
+BOARD_WLAN_DEVICE := bcmdhd
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_NAME := "dhd"
+WIFI_DRIVER_MODULE_ARG := ""
+WIFI_DRIVER_FW_PATH_STA := "/system/wifi/firmware.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/wifi/firmware_apsta.bin"
+WIFI_DRIVER_FW_PATH_P2P := "p2p"
+
+# GPS config
+BOARD_VENDOR_QCOM_AMSS_VERSION := 50000
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := c8860
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+
+# Bluetooth config
+BOARD_HAVE_BLUETOOTH := true
+
+# Filesystem config
+BOARD_HAS_SDCARD_INTERNAL := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_USERIMAGES_USE_EXT4 := true
+# BOARD_BOOT_DEVICE := /dev/block/mmcblk0p1
+# BOARD_RECOVERY_DEVICE := /dev/block/mmcblk0p1
+# BOARD_BOOT_DEVICE := /.cust_backup/image/boot.img
+# BOARD_RECOVERY_DEVICE := /.cust_backup/image/recovery.img
+BOARD_DATA_DEVICE := /dev/block/mmcblk0p13
+BOARD_DATA_FILESYSTEM := ext4
+BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12
+BOARD_SYSTEM_FILESYSTEM := ext4
+BOARD_CACHE_DEVICE := /dev/block/mmcblk0p6
+BOARD_CACHE_FILESYSTEM := ext4
+# BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk0p14
+BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p1
+
+# Fix this up by examining fdisk /dev/block/mmcblk0 on a running device
+# BOARD_BOOTIMAGE_PARTITION_SIZE     := 5242880
+BOARD_BOOTIMAGE_PARTITION_SIZE     := 7864320
+# BOARD_RECOVERYIMAGE_PARTITION_SIZE := 7864320
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 545259520
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1447034880
+BOARD_CACHEIMAGE_PARTITION_SIZE    := 104857600
+BOARD_FLASH_BLOCK_SIZE := 4096
+
+BOARD_USES_MMCUTILS := true
+
+TARGET_PREBUILT_KERNEL := device/huawei/c8860/kernel
+TARGET_RECOVERY_INITRC := device/huawei/c8860/recovery/recovery.rc
+
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files
 
 # Make touchscreen work
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
-# Use the non-open-source parts, if they're present
--include vendor/huawei/c8860/BoardConfigVendor.mk
+BOARD_HAS_NO_SELECT_BUTTON := true
 
-# Use the parts that are common between all tass
-include device/huawei/c8860/BoardConfigCommon.mk
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 

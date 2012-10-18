@@ -23,7 +23,7 @@
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/small_base.mk)
 
 # This is where we'd set a backup provider if we had one
-$(call inherit-product, device/huawei/c8860/device.mk)
+$(call inherit-product, device/huawei/c8860/device_c8860.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_c8860
