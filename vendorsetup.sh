@@ -20,10 +20,6 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo huawei_u8860-user
-add_lunch_combo huawei_u8860-eng
-add_lunch_combo huawei_u8860-userdebug
-
-add_lunch_combo cm_u8860-user
-add_lunch_combo cm_u8860-userdebug
-add_lunch_combo cm_u8860-eng
+add_lunch_combo cm_c8860-user
+add_lunch_combo cm_c8860-userdebug
+add_lunch_combo cm_c8860-eng

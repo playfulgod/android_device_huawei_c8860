@@ -21,8 +21,8 @@
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Use the non-open-source parts, if they're present
--include vendor/huawei/u8860/BoardConfigVendor.mk
+-include vendor/huawei/c8860/BoardConfigVendor.mk
 
 # Use the parts that are common between all tass
-include device/huawei/u8860/BoardConfigCommon.mk
+include device/huawei/c8860/BoardConfigCommon.mk
 

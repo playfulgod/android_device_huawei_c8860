@@ -1,7 +1,7 @@
 #!/bin/sh
 
 VENDOR=huawei
-DEVICE=u8860
+DEVICE=c8860
 
 BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
 

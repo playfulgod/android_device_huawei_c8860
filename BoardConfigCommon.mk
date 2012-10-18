@@ -4,13 +4,13 @@ LOCAL_PATH := $(call my-dir)
 
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DTARGET7x30 -DTARGET_MSM7x30 -DREFRESH_RATE=60
 
-TARGET_SPECIFIC_HEADER_PATH += device/huawei/u8860/include
+TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
 
 USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := true
 
 # inherit from the proprietary version
--include vendor/huawei/u8860/BoardConfigVendor.mk
+-include vendor/huawei/c8860/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -23,8 +23,8 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM := msm7x30
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-TARGET_BOOTLOADER_BOARD_NAME := u8860
-TARGET_OTA_ASSERT_DEVICE := u8860,U8860,honor,Honor
+TARGET_BOOTLOADER_BOARD_NAME := c8860
+TARGET_OTA_ASSERT_DEVICE := c8860,c8860,honor,Honor
 
 BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei androidboot.emmc=true
 BOARD_KERNEL_BASE := 0x00208000
@@ -68,7 +68,7 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 
 # GPS config
 BOARD_VENDOR_QCOM_AMSS_VERSION := 50000
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8860
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := c8860
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Bluetooth config
@@ -104,10 +104,10 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 
 BOARD_USES_MMCUTILS := true
 
-TARGET_PREBUILT_KERNEL := device/huawei/u8860/kernel
-TARGET_RECOVERY_INITRC := device/huawei/u8860/recovery/recovery.rc
+TARGET_PREBUILT_KERNEL := device/huawei/c8860/kernel
+TARGET_RECOVERY_INITRC := device/huawei/c8860/recovery/recovery.rc
 
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/huawei/u8860/releasetools/ota_from_target_files
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files
 
 # All the defines for /bootable/recovery (2012-07-24)
 #
@@ -115,8 +115,8 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/huawei/u8860/releasetools/ot
 BOARD_HAS_NO_SELECT_BUTTON := true
 #
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
-# BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8860/recovery/u8860_recovery_ui.c
-# BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/u8860/recovery/graphics.c
+# BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/c8860/recovery/c8860_recovery_ui.c
+# BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/c8860/recovery/graphics.c
 # BOARD_RECOVERY_RFS_CHECK :=
 #
 # BOARD_RECOVERY_ALWAYS_WIPES := true

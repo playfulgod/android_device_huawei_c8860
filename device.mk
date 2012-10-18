@@ -36,9 +36,9 @@
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES := \
-	frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+	frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 
-$(call inherit-product, device/huawei/u8860/device_u8860.mk)
+$(call inherit-product, device/huawei/c8860/device_c8860.mk)
 
 # See comment at the top of this file. This is where the other
 # half of the device-specific product definition file takes care
