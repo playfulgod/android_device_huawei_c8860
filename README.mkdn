@@ -30,7 +30,7 @@ Now initialized the repository and pull the source (with my repos attached):
 
 Depending on your connection, this might take awhile.
 
-Getting my LG Esteem 4G LGMS910 repo
+Getting my Huawei Mercury repo
 	
 	$ cd ~/android/system/device/
 
@@ -38,7 +38,7 @@ Getting my LG Esteem 4G LGMS910 repo
 
 	$ cd lge
 
-	$ git clone https://github.com/playfulgod/android_device_lge_ms910.git ms910
+	$ git clone https://github.com/playfulgod/android_device_huawei_c8860.git c8860
 
 Extract necessary binaries and proprietary files 
 ------------------------------------------------
@@ -47,7 +47,7 @@ We will need to reuse some proprietary files from the stock ROM:
 
     $ cd
     
-    $ cd ~/android/system/device/lge/ms910
+    $ cd ~/android/system/device/huawei/c8860
     
     $ ./extract-files.sh
 
@@ -67,17 +67,21 @@ Now, we build (system being your work directory):
 
     $ cd ~/android/system
 
-To build for the LG Esteem:
+To build for the Huawei Mercury:
     
-    $ . build/envsetup.sh && brunch ms910
+    $ . build/envsetup.sh && brunch c8860
 
 
 Installing CM9
 ---------------
-If the build was successful, you can now take the update zip found in out/target/product/ms910/ and flash using a custom recovery. Make sure to grab the latest Gapps to complete the experience.
+If the build was successful, you can now take the update zip found in out/target/product/c8860/ and flash using a custom recovery. Make sure to grab the latest Gapps to complete the experience.
 
 When you want to rebuild with new changes to the BoardConfig.mk or after syncing to the latest CM src make sure to do the following before you recompile.
 
     $ make clobber
 
+
+Credit & Thanks
+----------------
+Based off fredv's u8860 repo
 
