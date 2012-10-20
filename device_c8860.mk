@@ -16,9 +16,13 @@ $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 # Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+# Kernel Modules
+$(call inherit-product-if-exists, $(LOCAL_PATH)/prebuilt/modules/modules.mk)
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
 
 $(call inherit-product, build/target/product/full_base.mk)
 
@@ -27,8 +31,6 @@ PRODUCT_PACKAGES += \
 	gralloc.msm7x30 \
 	lights.msm7x30 \
 	hwcomposer.default \
-	DSPManager \
-	MusicFX \
 	setup_fs \
 	libOmxCore \
 	libOmxVidEnc \
@@ -87,7 +89,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_c8860
 PRODUCT_DEVICE := c8860
-PRODUCT_BRAND := huawei
+PRODUCT_BRAND := Cricket
 PRODUCT_MODEL := C8860
 PRODUCT_MANUFACTURER := Huawei
 

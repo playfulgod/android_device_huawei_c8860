@@ -24,7 +24,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM := msm7x30
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := c8860
-TARGET_OTA_ASSERT_DEVICE := c8860,C8860
+TARGET_OTA_ASSERT_DEVICE := msm7630_surf,hwc8860,c8860,C8860,M886
 
 BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei androidboot.emmc=true
 BOARD_KERNEL_BASE := 0x00208000
@@ -119,4 +119,8 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+
+# Insecure boot
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += persist.service.adb.enable=1
 
